@@ -14,7 +14,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowUpward
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -54,7 +54,7 @@ fun getFileName(uri: Uri, ctx: Context): String { var n = "파일"; ctx.contentR
             TextField(state.inputText,{vm.onInputChanged(it)},Modifier.weight(1f),placeholder={Text("자연어로 입력하세요...",color=Color(0xFF6B7280))},shape=RoundedCornerShape(24.dp),colors=TextFieldDefaults.colors(unfocusedContainerColor=Color(0xFF1E2030),focusedContainerColor=Color(0xFF1E2030),focusedTextColor=Color.White,unfocusedTextColor=Color.White,cursorColor=Color(0xFF3B82F6),focusedIndicatorColor=Color.Transparent,unfocusedIndicatorColor=Color.Transparent),keyboardOptions=KeyboardOptions(imeAction=ImeAction.Send),keyboardActions=KeyboardActions(onSend={vm.sendMessage()}),singleLine=true)
             Spacer(Modifier.width(8.dp))
             val active = state.inputText.isNotBlank()||state.pendingFileUri!=null
-            IconButton(onClick={vm.sendMessage()},Modifier.size(44.dp).clip(CircleShape).background(if(active)Brush.linearGradient(listOf(Color(0xFF3B82F6),Color(0xFF2563EB)))else Brush.horizontalGradient(listOf(Color(0xFF2A2D3E),Color(0xFF2A2D3E)))),enabled=active) { Icon(Icons.Default.ArrowUpward,"전송",tint=if(active)Color.White else Color(0xFF6B7280)) }
+            IconButton(onClick={vm.sendMessage()},Modifier.size(44.dp).clip(CircleShape).background(if(active)Brush.linearGradient(listOf(Color(0xFF3B82F6),Color(0xFF2563EB)))else Brush.horizontalGradient(listOf(Color(0xFF2A2D3E),Color(0xFF2A2D3E)))),enabled=active) { Icon(Icons.Default.KeyboardArrowUp,"전송",tint=if(active)Color.White else Color(0xFF6B7280)) }
         }
     }
 }
